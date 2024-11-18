@@ -17,7 +17,7 @@ import tibetyo.content_hub.content.Content;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 public class ContentCast {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
