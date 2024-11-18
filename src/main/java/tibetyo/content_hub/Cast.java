@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -30,6 +31,7 @@ public class Cast {
     @Builder
     public Cast(String name) {
         this.name = name;
+        this.contentCasts = new ArrayList<>();
     }
 
     public void addContentCast(ContentCast contentCast) {
