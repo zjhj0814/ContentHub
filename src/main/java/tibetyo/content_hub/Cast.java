@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import java.util.List;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -26,7 +27,13 @@ public class Cast {
     @OneToMany(mappedBy = "cast", cascade = CascadeType.ALL)
     public List<ContentCast> contentCasts;
 
+    @Builder
     public Cast(String name) {
         this.name = name;
+    }
+
+    public void addContentCast(ContentCast contentCast) {
+        contentCasts.add(contentCast);
+        contentCast.setCast(this);
     }
 }

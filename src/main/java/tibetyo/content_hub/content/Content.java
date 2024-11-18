@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import java.util.List;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.NoArgsConstructor;
 import tibetyo.content_hub.ContentCast;
 
@@ -28,9 +29,15 @@ public class Content {
     @OneToMany(mappedBy = "content", cascade = CascadeType.ALL)
     private List<ContentCast> contentCasts;
 
+    @Builder(access = AccessLevel.PUBLIC)
     public Content(String title, String description, ContentCategory category) {
         this.title = title;
         this.description = description;
         this.category = category;
+    }
+
+    public void addContentCast(ContentCast contentCast) {
+        this.contentCasts.add(contentCast);
+        contentCast.setContent(this);
     }
 }
