@@ -5,8 +5,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.stereotype.Component;
 
-import static tibetyo.content_hub.WebDriverProperty.WEB_DRIVER_ID;
-import static tibetyo.content_hub.WebDriverProperty.WEB_DRIVER_PATH;
+import static tibetyo.content_hub.enumProperty.WebDriverProperty.WEB_DRIVER_ID;
+import static tibetyo.content_hub.enumProperty.WebDriverProperty.WEB_DRIVER_PATH;
 
 @Component
 public class WebDriverUtil {

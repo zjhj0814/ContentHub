@@ -14,7 +14,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static tibetyo.content_hub.OTTURL.Wavve;
+import static tibetyo.content_hub.enumProperty.AccountId.WavveId;
+import static tibetyo.content_hub.enumProperty.AccountPassword.WavvePW;
+import static tibetyo.content_hub.enumProperty.OTTURL.Wavve;
 
 @AllArgsConstructor
 public class DramaCrawler implements ContentCrawler {
@@ -26,6 +28,9 @@ public class DramaCrawler implements ContentCrawler {
     @Override
     public void crawlContent() throws InterruptedException {
         driver.get(Wavve.getUrl());
+
+        //로그인
+        login();
 
         // 팝업 닫기
         closePopup();
@@ -116,6 +121,11 @@ public class DramaCrawler implements ContentCrawler {
         return dramaTitles;
     }
 
+    private void login() {
+        driver.findElement(By.xpath("//*[@id='app']/div[1]/main/div/div[1]/form/fieldset/ul[1]/li[1]/label/input")).sendKeys(WavveId.getId());
+        driver.findElement(By.xpath("//*[@id='app']/div[1]/main/div/div[1]/form/fieldset/ul[1]/li[2]/label/input")).sendKeys(WavvePW.getPassword());
+        driver.findElement(By.xpath("//*[@id='app']/div[1]/main/div/div[1]/form/fieldset/div")).click();
+    }
 
     private void closePopup() {
         try {
