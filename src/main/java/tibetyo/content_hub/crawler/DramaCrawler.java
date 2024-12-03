@@ -47,18 +47,10 @@ public class DramaCrawler implements ContentCrawler {
                 dramaLink.click();
 
                 // 상세 페이지에서 배우 목록 크롤링
-                List<WebElement> actorNameElements = wait.until(
-                        ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector(".content-actor-box span a"))
-                );
-                List<String> actorNames = actorNameElements.stream()
-                        .map(actorNameElement -> actorNameElement.getAttribute("innerText").strip())
-                        .toList();
+                List<String> actorNames = getActorNames();
 
                 // 상세 페이지에서 설명 크롤링
-                WebElement descriptionElement = wait.until(
-                        ExpectedConditions.presenceOfElementLocated(By.cssSelector(".content-clamp span span"))
-                );
-                String description = descriptionElement.getAttribute("aria-label");
+                String description = getDescription();
 
                 // 데이터 저장
                 contentCastService.saveCrawlingData(
@@ -74,6 +66,24 @@ public class DramaCrawler implements ContentCrawler {
                 driver.navigate().back(); // 에러 시 뒤로가기 시도
             }
         }
+    }
+
+    private String getDescription() {
+        WebElement descriptionElement = wait.until(
+                ExpectedConditions.presenceOfElementLocated(By.cssSelector(".content-clamp span span"))
+        );
+        String description = descriptionElement.getAttribute("aria-label");
+        return description;
+    }
+
+    private List<String> getActorNames() {
+        List<WebElement> actorNameElements = wait.until(
+                ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector(".content-actor-box span a"))
+        );
+        List<String> actorNames = actorNameElements.stream()
+                .map(actorNameElement -> actorNameElement.getAttribute("innerText").strip())
+                .toList();
+        return actorNames;
     }
 
     private void readyToCrawl() {
