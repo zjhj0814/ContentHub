@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import tibetyo.content_hub.content.ContentCategory;
 import tibetyo.content_hub.dto.ContentCrawlDto;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -51,11 +52,11 @@ public class DramaCrawler implements ContentCrawler {
                 );
                 dramaLink.click();
 
-                // 상세 페이지에서 배우 목록 크롤링
-                List<String> actorNames = getActorNames();
-
                 // 상세 페이지에서 설명 크롤링
                 String description = getDescription();
+
+                // 상세 페이지에서 배우 목록 크롤링
+                List<String> actorNames = getActorNames();
 
                 // 데이터 저장
                 contentCastService.saveCrawlingData(
@@ -82,12 +83,11 @@ public class DramaCrawler implements ContentCrawler {
     }
 
     private List<String> getActorNames() {
-        List<WebElement> actorNameElements = wait.until(
-                ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector(".content-actor-box span a"))
-        );
-        List<String> actorNames = actorNameElements.stream()
-                .map(actorNameElement -> actorNameElement.getAttribute("innerText").strip())
-                .toList();
+        List<WebElement> actorNameElements = driver.findElements(By.className("content-actor-list"));
+        List<String> actorNames = actorNameElements.isEmpty() ?
+                Collections.emptyList() : actorNameElements.stream()
+                .map(actorNameElement -> actorNameElement.getAttribute("innerText").strip()).toList();
+        System.out.println("actorNames.size() = " + actorNames.size());
         return actorNames;
     }
 
