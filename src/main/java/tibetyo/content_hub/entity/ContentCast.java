@@ -1,18 +1,7 @@
-package tibetyo.content_hub;
+package tibetyo.content_hub.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import tibetyo.content_hub.content.Content;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
 @Getter

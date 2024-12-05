@@ -7,17 +7,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import tibetyo.content_hub.content.ContentCategory;
 import tibetyo.content_hub.dto.ContentCrawlDto;
+import tibetyo.content_hub.entity.ContentCategory;
+import tibetyo.content_hub.service.ContentCastService;
 
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static tibetyo.content_hub.enumProperty.AccountId.WavveId;
-import static tibetyo.content_hub.enumProperty.AccountPassword.WavvePW;
-import static tibetyo.content_hub.enumProperty.OTTURL.Wavve;
+import static tibetyo.content_hub.auth.AccountId.WavveId;
+import static tibetyo.content_hub.auth.AccountPassword.WavvePW;
+import static tibetyo.content_hub.config.OTTURL.Wavve;
 
 @AllArgsConstructor
 public class DramaCrawler implements ContentCrawler {

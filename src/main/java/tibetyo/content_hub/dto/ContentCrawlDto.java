@@ -1,9 +1,10 @@
 package tibetyo.content_hub.dto;
 
-import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import tibetyo.content_hub.content.ContentCategory;
+import tibetyo.content_hub.entity.ContentCategory;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor

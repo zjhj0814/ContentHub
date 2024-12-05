@@ -1,10 +1,9 @@
-package tibetyo.content_hub.content;
+package tibetyo.content_hub.entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
-import tibetyo.content_hub.ContentCast;
 
 import java.util.ArrayList;
 import java.util.List;

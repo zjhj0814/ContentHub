@@ -1,4 +1,4 @@
-package tibetyo.content_hub.enumProperty;
+package tibetyo.content_hub.config;
 
 public enum OTTURL {
     Wavve("https://www.wavve.com/member/login?referer=%2F");

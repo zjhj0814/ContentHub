@@ -1,14 +1,14 @@
-package tibetyo.content_hub.crawler;
+package tibetyo.content_hub.service;
 
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
-import tibetyo.content_hub.Cast;
-import tibetyo.content_hub.CastRepository;
-import tibetyo.content_hub.ContentCast;
-import tibetyo.content_hub.ContentCastRepository;
-import tibetyo.content_hub.content.Content;
-import tibetyo.content_hub.content.ContentRepository;
 import tibetyo.content_hub.dto.ContentCrawlDto;
+import tibetyo.content_hub.entity.Cast;
+import tibetyo.content_hub.entity.Content;
+import tibetyo.content_hub.entity.ContentCast;
+import tibetyo.content_hub.repository.CastRepository;
+import tibetyo.content_hub.repository.ContentCastRepository;
+import tibetyo.content_hub.repository.ContentRepository;
 
 @Service
 public class ContentCastService {

@@ -1,4 +1,4 @@
-package tibetyo.content_hub;
+package tibetyo.content_hub.scheduler;
 
 import lombok.AllArgsConstructor;
 import org.openqa.selenium.JavascriptExecutor;
@@ -6,8 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import tibetyo.content_hub.crawler.ContentCastService;
 import tibetyo.content_hub.crawler.DramaCrawler;
+import tibetyo.content_hub.service.ContentCastService;
+import tibetyo.content_hub.util.WebDriverUtil;
 
 import java.time.Duration;
 

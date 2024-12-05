@@ -1,4 +1,4 @@
-package tibetyo.content_hub.content;
+package tibetyo.content_hub.entity;
 
 import lombok.Getter;
 
