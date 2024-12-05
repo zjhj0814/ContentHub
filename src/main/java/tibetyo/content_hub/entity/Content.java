@@ -21,7 +21,7 @@ public class Content {
     private String description;
     @Enumerated(EnumType.STRING)
     private ContentCategory category;
-    @OneToMany(mappedBy = "content", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "content", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContentCast> contentCasts;
 
     @Builder(access = AccessLevel.PUBLIC)

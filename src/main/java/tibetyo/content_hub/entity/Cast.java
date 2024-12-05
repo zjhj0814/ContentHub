@@ -21,7 +21,7 @@ public class Cast {
     @Column(name = "cast_name")
     private String name;
 
-    @OneToMany(mappedBy = "cast", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "cast", cascade = CascadeType.ALL, orphanRemoval = true)
     public List<ContentCast> contentCasts;
 
     @Builder
