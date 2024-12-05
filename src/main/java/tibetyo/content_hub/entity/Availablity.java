@@ -27,8 +27,7 @@ public class Availablity {
     private ContentStatus contentStatus;
 
     @Builder
-    public Availablity(Long id, Content content, Ott ott, ContentStatus contentStatus) {
-        this.id = id;
+    public Availablity(Content content, Ott ott, ContentStatus contentStatus) {
         this.content = content;
         this.ott = ott;
         this.contentStatus = contentStatus;
